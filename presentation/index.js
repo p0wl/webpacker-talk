@@ -8,7 +8,6 @@ import {
   Deck,
   Heading,
   CodePane,
-  Code,
   Quote,
   Slide,
   Text,
@@ -132,9 +131,9 @@ export default class Presentation extends React.Component {
             textColor="secondary"
             lang="ruby"
             source={`
-              bin/webpack
-              bin/webpack-watcher
-              bin/webpack-dev-server
+              bin/webpack-dev-server  # http server to serve assets
+              bin/webpack-watcher     # file watcher
+              bin/webpack             # hooked into assets:precompile
             `}
           />
         </Slide>
@@ -155,6 +154,9 @@ app/javascript/packs/hello_react.jsx # another entry, with react usage
         <Slide notes="es6 imports \o/">
           <Text textColor="tertiary" textAlign="left">
             application entry point
+          </Text>
+          <Text textColor="secondary" textAlign="left">
+            pack
           </Text><br />
           <CodePane
             textColor="secondary"
@@ -226,6 +228,16 @@ config/webpack/production.js         # production settings obviously
 config/webpack/shared.js             # webpack config for all environments
             `}
           />
+        </Slide>
+        <Slide>
+          <Heading fit caps textColor="secondary">
+            Code
+          </Heading>
+        </Slide>
+        <Slide>
+          <Heading fit caps textColor="secondary">
+            webpacker can coexist<br />with the asset pipeline
+          </Heading>
         </Slide>
         <Slide>
           <Heading fit caps textColor="secondary">
@@ -308,7 +320,13 @@ config/webpack/shared.js             # webpack config for all environments
         </Slide>
         <Slide bgColor="secondary" textColor="primary">
           <BlockQuote>
-            <Quote>Thanks</Quote>
+            <Heading textColor="primary">thanks!</Heading>
+            <Text textColor="primary" textAlign="left">
+              Paul Mölders
+            </Text>
+            <Text textAlign="left">
+              <Link textColor="tertiary" href="http://p0wl.space">p0wl.space</Link>
+            </Text>
           </BlockQuote>
         </Slide>
       </Deck>
